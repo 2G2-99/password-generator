@@ -101,7 +101,7 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-	let strLength = Number(
+	letNumber(
 		prompt(
 			'How many characters would you like to have on your password?',
 			10
@@ -144,7 +144,7 @@ function checkLength(strLength) {
 	if (typeof strLength === 'number') {
 		if (strLength < 10) {
 			alert('Your password must contain at least 10 characters');
-			strLength = strLength = Number(
+			strLength = Number(
 				prompt(
 					'How many characters would you like to have on your password?',
 					10
@@ -155,7 +155,7 @@ function checkLength(strLength) {
 			return strLength;
 		} else if (strLength > 64) {
 			alert('Your password cannot contain more than 64 characters');
-			strLength = strLength = Number(
+			strLength = Number(
 				prompt(
 					'How many characters would you like to have on your password?',
 					10
@@ -164,7 +164,7 @@ function checkLength(strLength) {
 			return strLength;
 		} else {
 			alert('Try with a numerical input');
-			strLength = strLength = Number(
+			strLength = Number(
 				prompt(
 					'How many characters would you like to have on your password?',
 					10
@@ -176,7 +176,7 @@ function checkLength(strLength) {
 }
 
 // Testing area
-let strLength = Number(
+letNumber(
 	prompt('How many characters would you like to have on your password?', 10)
 );
 
