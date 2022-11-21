@@ -100,13 +100,14 @@ var upperCasedCharacters = [
 ];
 
 // Function to prompt user for password options
-function getPasswordOptions() {
-	letNumber(
+function getPasswordOptions(checkLength, confirmTypes) {
+	let strLength = Number(
 		prompt(
 			'How many characters would you like to have on your password?',
 			10
 		)
 	);
+	return checkLength(strLength);
 }
 
 // Function for getting a random element from an array
@@ -132,12 +133,19 @@ generateBtn.addEventListener('click', writePassword);
 // Added code by me
 
 // Object of types of characters
-let charTypes = {
-	specialCharacters: specialCharacters,
-	numericCharacters: numericCharacters,
-	lowerCasedCharacters: lowerCasedCharacters,
-	upperCasedCharacters: upperCasedCharacters,
+const charTypes = {
+	// specialCharacters: specialCharacters,
+	// numericCharacters: numericCharacters,
+	// lowerCasedCharacters: lowerCasedCharacters,
+	// upperCasedCharacters: upperCasedCharacters,
+
+	'Special Characters': specialCharacters,
+	'Numeric Characters': numericCharacters,
+	'Lower Case Characters': lowerCasedCharacters,
+	'Upper Case Characters': upperCasedCharacters,
 };
+
+let charArray = [];
 
 // Function to check the user input
 function checkLength(strLength) {
@@ -151,8 +159,6 @@ function checkLength(strLength) {
 				)
 			);
 			return strLength;
-		} else if (strLength >= 10 && strLength <= 64) {
-			return strLength;
 		} else if (strLength > 64) {
 			alert('Your password cannot contain more than 64 characters');
 			strLength = Number(
@@ -161,6 +167,8 @@ function checkLength(strLength) {
 					10
 				)
 			);
+			return strLength;
+		} else if (strLength >= 10 && strLength <= 64) {
 			return strLength;
 		} else {
 			alert('Try with a numerical input');
@@ -175,10 +183,17 @@ function checkLength(strLength) {
 	}
 }
 
-// Testing area
-letNumber(
-	prompt('How many characters would you like to have on your password?', 10)
-);
+function confirmTypes(charTypes) {
+	for (let type in charTypes) {
+		let addType = confirm(`Would you like to include ${type}`);
 
-console.log(checkLength(strLength));
-//
+		if (addType === true) {
+			charArray.push(charTypes[type]);
+		}
+	}
+	return charArray;
+}
+
+// ?  Testing area
+
+// ?
