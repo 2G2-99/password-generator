@@ -101,17 +101,14 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions(checkLength, confirmTypes) {
-	let strLength = Number(
-		prompt(
-			'How many characters would you like to have on your password?',
-			10
-		)
-	);
-	return checkLength(strLength);
+	checkLength();
+	confirmTypes(charTypes);
+
+	return password;
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {}
+function getRandom(arr, length) {}
 
 // Function to generate password with user input
 function generatePassword() {}
@@ -130,70 +127,84 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
-// Added code by me
+// * Code added  by me
+
+// # Variables
 
 // Object of types of characters
 const charTypes = {
-	// specialCharacters: specialCharacters,
-	// numericCharacters: numericCharacters,
-	// lowerCasedCharacters: lowerCasedCharacters,
-	// upperCasedCharacters: upperCasedCharacters,
-
 	'Special Characters': specialCharacters,
 	'Numeric Characters': numericCharacters,
 	'Lower Case Characters': lowerCasedCharacters,
 	'Upper Case Characters': upperCasedCharacters,
 };
-
+// Prompt for length of string
+let strLength;
+// Empty array for characters
 let charArray = [];
+// Password Object
+let password = {
+	strLength,
+	charArray,
+};
+
+// # Functions
 
 // Function to check the user input
-function checkLength(strLength) {
-	if (typeof strLength === 'number') {
-		if (strLength < 10) {
+function checkLength() {
+	password.strLength = Number(
+		prompt(
+			'How many characters would you like to have on your password?',
+			10
+		)
+	);
+	if (typeof password.strLength === 'number') {
+		if (password.strLength < 10) {
 			alert('Your password must contain at least 10 characters');
-			strLength = Number(
+			password.strLength = Number(
 				prompt(
 					'How many characters would you like to have on your password?',
 					10
 				)
 			);
-			return strLength;
-		} else if (strLength > 64) {
+			return password.strLength;
+		} else if (password.strLength > 64) {
 			alert('Your password cannot contain more than 64 characters');
-			strLength = Number(
+			password.strLength = Number(
 				prompt(
 					'How many characters would you like to have on your password?',
 					10
 				)
 			);
-			return strLength;
-		} else if (strLength >= 10 && strLength <= 64) {
-			return strLength;
+			return password.strLength;
+		} else if (password.strLength >= 10 && password.strLength <= 64) {
+			return password.strLength;
 		} else {
 			alert('Try with a numerical input');
-			strLength = Number(
+			password.strLength = Number(
 				prompt(
 					'How many characters would you like to have on your password?',
 					10
 				)
 			);
-			return strLength;
+			return password.strLength;
 		}
 	}
 }
-
+// Function to push characters into the array
 function confirmTypes(charTypes) {
 	for (let type in charTypes) {
 		let addType = confirm(`Would you like to include ${type}`);
 
 		if (addType === true) {
-			charArray.push(charTypes[type]);
+			charArray.push(...charTypes[type]);
 		}
 	}
-	return charArray;
+	return password['charArray'];
 }
 
 // ?  Testing area
-
+// console.log(getPasswordOptions(checkLength, confirmTypes));
 // ?
+
+// *
