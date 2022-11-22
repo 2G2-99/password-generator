@@ -119,9 +119,9 @@ function generatePassword(arr, length, getRandom) {
 
 	while (i < length) {
 		i++;
-		password['str'].push(getRandom(arr));
+		password['passwordArray'].push(getRandom(arr));
 	}
-	return password['str'].join('');
+	return password['passwordArray'].join('');
 }
 
 // Get references to the #generate element
@@ -154,9 +154,9 @@ let strLength;
 // Empty array for characters
 let charArray = [];
 // String created with the length and characters requested by the user
-let str = [];
+let passwordArray = [];
 // Password Object
-let password = { strLength, charArray, str };
+let password = { strLength, charArray, passwordArray };
 
 // # Functions
 
@@ -220,7 +220,7 @@ generatePassword(password.charArray, password.strLength, getRandom);
 // #
 
 // ?  Testing area
-console.log(password.str);
+console.log(password.passwordArray);
 // ?
 
 // *
