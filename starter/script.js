@@ -108,10 +108,21 @@ function getPasswordOptions(checkLength, confirmTypes) {
 }
 
 // Function for getting a random element from an array
-function getRandom(arr, length) {}
+function getRandom(arr) {
+	const random = Math.floor(Math.random() * arr.length);
+	return arr[random];
+}
 
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword(arr, length, getRandom) {
+	let i = 0;
+
+	while (i < length) {
+		i++;
+		password['str'].push(getRandom(arr));
+	}
+	return password['str'].join('');
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -142,11 +153,10 @@ const charTypes = {
 let strLength;
 // Empty array for characters
 let charArray = [];
+// String created with the length and characters requested by the user
+let str = [];
 // Password Object
-let password = {
-	strLength,
-	charArray,
-};
+let password = { strLength, charArray, str };
 
 // # Functions
 
@@ -203,8 +213,14 @@ function confirmTypes(charTypes) {
 	return password['charArray'];
 }
 
+// # Calling functions
+getPasswordOptions(checkLength, confirmTypes);
+getRandom(password.charArray);
+generatePassword(password.charArray, password.strLength, getRandom);
+// #
+
 // ?  Testing area
-// console.log(getPasswordOptions(checkLength, confirmTypes));
+console.log(password.str);
 // ?
 
 // *
