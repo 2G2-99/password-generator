@@ -119,9 +119,9 @@ function generatePassword(arr, length, getRandom) {
 
 	while (i < length) {
 		i++;
-		password['str'].push(getRandom(arr));
+		passwordArray.push(getRandom(arr));
 	}
-	return password['str'].join('');
+	return passwordArray.join('');
 }
 
 // Get references to the #generate element
@@ -153,10 +153,12 @@ const charTypes = {
 let strLength;
 // Empty array for characters
 let charArray = [];
-// String created with the length and characters requested by the user
-let str = [];
+// Array containing the password created with the length and characters requested by the user
+let passwordArray = [];
+// String converted from passwordArray
+let passwordString = '';
 // Password Object
-let password = { strLength, charArray, str };
+let password = { strLength, charArray, passwordString };
 
 // # Functions
 
@@ -213,14 +215,24 @@ function confirmTypes(charTypes) {
 	return password['charArray'];
 }
 
+// Function to convert passwordArray to a string
+function arrToStr() {
+	for (let i = 0; i < passwordArray.length; i++) {
+		const character = passwordArray[i];
+		passwordString += character;
+	}
+	return passwordString;
+}
+
 // # Calling functions
 getPasswordOptions(checkLength, confirmTypes);
 getRandom(password.charArray);
 generatePassword(password.charArray, password.strLength, getRandom);
+arrToStr();
 // #
 
 // ?  Testing area
-console.log(password.str);
+console.log(passwordString);
 // ?
 
 // *
