@@ -1,6 +1,5 @@
 # password-generator
 
-<<<<<<< HEAD
 This application generates a random password based on the user conditions.
 
 ## Criteria for the conditions
@@ -10,8 +9,9 @@ This application generates a random password based on the user conditions.
 
 ## Footage of the webpage
 
+![](https://github.com/https://github.com/2G2-99/password-generator/blob/main/Assets/gifs/PWD%20Generator%20.gif)
+
 ## Link to webpage
 
 This site has been published through GitHub Pages.
-=======
->>>>>>> 9d5deaf34e72a18dbd9c1affd98d7a8d21364b78
+
