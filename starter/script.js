@@ -121,7 +121,7 @@ function generatePassword(arr, length, getRandom) {
 		i++;
 		passwordArray.push(getRandom(arr));
 	}
-	return passwordArray.join('');
+	return arrToStr();
 }
 
 // Get references to the #generate element
@@ -219,20 +219,20 @@ function confirmTypes(charTypes) {
 function arrToStr() {
 	for (let i = 0; i < passwordArray.length; i++) {
 		const character = passwordArray[i];
-		passwordString += character;
+		password.passwordString += character;
 	}
-	return passwordString;
+	return password.passwordString;
 }
 
 // # Calling functions
 getPasswordOptions(checkLength, confirmTypes);
 getRandom(password.charArray);
 generatePassword(password.charArray, password.strLength, getRandom);
-arrToStr();
 // #
 
 // ?  Testing area
-console.log(passwordString);
+console.log(password);
+console.log(password['passwordString'].length);
 // ?
 
 // *
