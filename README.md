@@ -9,7 +9,7 @@ This application generates a random password based on the user conditions.
 
 ## Footage of the webpage
 
-![](https://github.com/https://github.com/2G2-99/password-generator/blob/main/Assets/gifs/PWD%20Generator%20.gif)
+![](https://github.com/https://github.com/https://github.com/2G2-99/password-generator/blob/main/Assets/gifs/PWD%20Generator%20.gif)
 
 ## Link to webpage
 
