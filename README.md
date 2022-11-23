@@ -1,5 +1,6 @@
 # password-generator
 
+<<<<<<< HEAD
 This application generates a random password based on the user conditions.
 
 ## Criteria for the conditions
@@ -12,3 +13,5 @@ This application generates a random password based on the user conditions.
 ## Link to webpage
 
 This site has been published through GitHub Pages.
+=======
+>>>>>>> 9d5deaf34e72a18dbd9c1affd98d7a8d21364b78
