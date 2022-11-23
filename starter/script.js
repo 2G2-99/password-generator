@@ -1,14 +1,3 @@
-/**
- * PSEUDOCODE
-  - Create a function where a prompt gets a numeric input specifying how many characters the users want in their password (no less than 10 and no more than 64)
-
-    On that same function there should be multiple confirms, where the users decide what character type they want to include.
-
-  - With the validated character types (minimum one) generate a random string (It may begin as an array but then it gets concatenated)
-
-  - When the password has been generated, then it has to be displayed on the webpage
- */
-
 // Array of special characters to be included in password
 var specialCharacters = [
 	'@',
@@ -129,14 +118,13 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-	var password = generatePassword();
 	var passwordText = document.querySelector('#password');
 
-	passwordText.value = password;
+	passwordText.value = password.passwordString;
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener('click', writePassword);
+generateBtn.addEventListener('click', summoner);
 
 // * Code added  by me
 
@@ -204,7 +192,7 @@ function checkLength() {
 	}
 }
 // Function to push characters into the array
-function confirmTypes(charTypes) {
+function confirmTypes() {
 	for (let type in charTypes) {
 		let addType = confirm(`Would you like to include ${type}`);
 
@@ -214,7 +202,6 @@ function confirmTypes(charTypes) {
 	}
 	return password['charArray'];
 }
-
 // Function to convert passwordArray to a string
 function arrToStr() {
 	for (let i = 0; i < passwordArray.length; i++) {
@@ -223,16 +210,10 @@ function arrToStr() {
 	}
 	return password.passwordString;
 }
-
-// # Calling functions
-getPasswordOptions(checkLength, confirmTypes);
-getRandom(password.charArray);
-generatePassword(password.charArray, password.strLength, getRandom);
-// #
-
-// ?  Testing area
-console.log(password);
-console.log(password['passwordString'].length);
-// ?
-
-// *
+// Function to call the other functions
+function summoner() {
+	getPasswordOptions(checkLength, confirmTypes);
+	getRandom(password.charArray);
+	generatePassword(password.charArray, password.strLength, getRandom);
+	writePassword();
+}
